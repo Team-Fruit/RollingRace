@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// ステージの幅を画面の幅に合わせる
 [ExecuteInEditMode]
 [RequireComponent(typeof(Camera))]
 public class MatchWidth : MonoBehaviour
 {
+    // ステージの幅の定数
     public float width;
 
+    // カメラ
     Camera _camera;
 
     void Start()
@@ -19,7 +22,9 @@ public class MatchWidth : MonoBehaviour
     // even if the screen/window size changes dynamically.
     void LateUpdate()
     {
+        // カメラがあったら動作
         if (_camera != null)
-            _camera.orthographicSize = width * Screen.height / Screen.width * 0.5f;
+            // 画面の高さを(定数*幅/高さ)すれば画面の幅になる
+            _camera.orthographicSize = width * Screen.height / Screen.width;
     }
 }
