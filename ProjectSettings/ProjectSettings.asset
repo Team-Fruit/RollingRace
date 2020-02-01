@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 18
-  productGUID: 00000000000000000000000000000000
+  productGUID: 0ffaa65f32588d5488360472cd59939a
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -12,11 +12,11 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: 
-  productName: 
+  companyName: TeamFruit
+  productName: RollingRace
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
-  m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
+  m_SplashScreenBackgroundColor: {r: 0.10588236, g: 0.078431375, b: 0.38823533, a: 1}
   m_ShowUnitySplashScreen: 1
   m_ShowUnitySplashLogo: 1
   m_SplashScreenOverlayOpacity: 1
@@ -39,7 +39,9 @@ PlayerSettings:
     y: 0
     width: 1
     height: 1
-  m_SplashScreenLogos: []
+  m_SplashScreenLogos:
+  - logo: {fileID: 21300000, guid: 775901fa6fc241348a6e3f7536202e85, type: 3}
+    duration: 2
   m_VirtualRealitySplashScreen: {fileID: 0}
   m_HolographicTrackingLossScreen: {fileID: 0}
   defaultScreenWidth: 1024
@@ -164,7 +166,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Standalone: com.Company.ProductName
+    Standalone: net.teamfruit.games.RollingRace
   buildNumber: {}
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 16
@@ -276,7 +278,14 @@ PlayerSettings:
   AndroidValidateAppBundleSize: 1
   AndroidAppBundleSizeToValidate: 150
   resolutionDialogBanner: {fileID: 0}
-  m_BuildTargetIcons: []
+  m_BuildTargetIcons:
+  - m_BuildTarget: 
+    m_Icons:
+    - serializedVersion: 2
+      m_Icon: {fileID: 2800000, guid: 4863a46a743a51847897e2f2230b27f2, type: 3}
+      m_Width: 128
+      m_Height: 128
+      m_Kind: 0
   m_BuildTargetPlatformIcons: []
   m_BuildTargetBatching: []
   m_BuildTargetGraphicsAPIs:
@@ -288,7 +297,19 @@ PlayerSettings:
   openGLRequireES31AEP: 0
   openGLRequireES32: 0
   vuforiaEnabled: 0
-  m_TemplateCustomTags: {}
+  m_TemplateCustomTags:
+    HEADER_INJECTION: "<meta property=\"og:url\" content=\"https://games.teamfruit.net/RollingRace\"
+      /> <meta property=\"og:type\" content=\"website\" /> <meta property=\"og:title\"
+      content=\"Rolling Race\" /> <meta property=\"og:description\" content=\"\u3086\u304D\u3060\u308B\u307E\u3053\u308D\u304C\u3057\"
+      /> <meta property=\"og:site_name\" content=\"TeamFruit\" /> <meta property=\"og:image\"
+      content=\"https://gyazo.com/fe77a396b7470db6473d342b3343d072/raw\" /> <meta
+      name=\"twitter:card\" content=\"RollingRace\" /> <meta name=\"twitter:site\"
+      content=\"@Kmesuta\" /> <meta name=\"twitter:title\" content=\"Rolling Race\"
+      /> <meta name=\"twitter:description\" content=\"\u3086\u304D\u3060\u308B\u307E\u3053\u308D\u304C\u3057\"
+      /> <meta name=\"twitter:image\" content=\"https://gyazo.com/fe77a396b7470db6473d342b3343d072/raw\"
+      />"
+    HEAD_INJECTION: ' prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/ fb# website:
+      http://ogp.me/ns/website#"'
   mobileMTRendering:
     Android: 1
     iPhone: 1
@@ -514,7 +535,7 @@ PlayerSettings:
   webGLDebugSymbols: 0
   webGLEmscriptenArgs: 
   webGLModulesDirectory: 
-  webGLTemplate: APPLICATION:Default
+  webGLTemplate: PROJECT:BetterTemplate
   webGLAnalyzeBuildSize: 0
   webGLUseEmbeddedResources: 0
   webGLCompressionFormat: 1
