@@ -787,8 +787,10 @@ MonoBehaviour:
   runout: 8
   runoutPow: 2
   expectedMaxSpeed: 100
+  hitSpeedDown: 5
   maxSize: 6
   sizeProgressSpeed: 0.002
+  hitSizeDown: 0.02
 --- !u!4 &1311523960 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5332104276300787995, guid: fd6dfe12c89319e47b5189c4afe20501,

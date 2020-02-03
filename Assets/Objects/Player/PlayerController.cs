@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -21,6 +22,8 @@ public class PlayerController : MonoBehaviour
     public float runoutPow = 1f;
     // 予想された最大速度
     public float expectedMaxSpeed = 100f;
+    // 減速
+    public float hitSpeedDown = .02f;
 
     // サイズ
     private float _currentSizeProgress = 0f;
@@ -28,6 +31,8 @@ public class PlayerController : MonoBehaviour
     public float maxSize = 0f;
     // サイズスピード
     public float sizeProgressSpeed = .01f;
+    // サイズダウン
+    public float hitSizeDown = .02f;
 
     // Start is called before the first frame update
     void Start()
@@ -51,7 +56,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             // ドラッグ量算出
-            var pos = (Vector2) Input.mousePosition;
+            var pos = (Vector2)Input.mousePosition;
             var sub = pos - _prevMousePos;
 
             // 速度計算
@@ -66,10 +71,10 @@ public class PlayerController : MonoBehaviour
 
         // 移動量に応じてサイズを増やす
         {
-            var pos = (Vector2) transform.position;
+            var pos = (Vector2)transform.position;
             var diff = pos - _prevPos;
             _prevPos = pos;
-            
+
             // サイズ進捗を加算
             _currentSizeProgress += diff.y * sizeProgressSpeed * (Time.deltaTime * 60);
             // サイズ進捗を0～1へ丸める
@@ -79,5 +84,15 @@ public class PlayerController : MonoBehaviour
             // サイズを適用
             transform.localScale = Vector3.one * currentSize;
         }
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        // 速度0
+        if (_rigid.velocity.magnitude > hitSpeedDown)
+            _rigid.velocity *= 0;
+        // _rigid.velocity *= Mathf.Clamp01(1 - hitSpeedDown / _rigid.velocity.magnitude);
+        // サイズをもとに戻す
+        _currentSizeProgress -= hitSizeDown;
     }
 }
