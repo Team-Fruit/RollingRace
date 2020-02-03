@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
             _prevPos = pos;
 
             // サイズ進捗を加算
-            _currentSizeProgress += diff.y * sizeProgressSpeed * (Time.deltaTime * 60);
+            _currentSizeProgress += Mathf.Abs(diff.y) * sizeProgressSpeed * (Time.deltaTime * 60);
             // サイズ進捗を0～1へ丸める
             _currentSizeProgress = Mathf.Clamp01(_currentSizeProgress);
             // サイズ進捗をサイズ(1～maxSize)へ変換
